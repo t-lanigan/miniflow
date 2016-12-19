@@ -53,15 +53,22 @@ class Add(Neuron):
 
     def forward(self):
         result = 0
-        
         for n in self.inbound_neurons:
             result += n.value
-        
         self.value = result
 
-"""
-No need to change anything below here!
-"""
+class Mul(Neuron):
+    #Multiplies different nodes together.
+    
+    def __init__(self, *inputs):
+        Neuron.__init__(self,inputs)
+        
+    def forward(self):
+        result = 1
+        
+        for n in self.inbound_neurons:
+            result *= n.value
+        self.value = result
 
 
 def topological_sort(feed_dict):
