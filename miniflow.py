@@ -52,12 +52,12 @@ class Add(Neuron):
         Neuron.__init__(self, [x, y])
 
     def forward(self):
-        """
-        Set the value of this neuron (`self.value`) to the sum of it's inbound_nodes.
+        result = 0
         
-        Your code here!
-        """
-        self.value = sum(self.inbound_neurons)
+        for n in self.inbound_neurons:
+            result += n.value
+        
+        self.value = result
 
 """
 No need to change anything below here!
