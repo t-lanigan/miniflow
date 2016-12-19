@@ -70,6 +70,11 @@ class Mul(Neuron):
             result *= n.value
         self.value = result
 
+    def forward(self):
+        self.value = self.bias.value
+        for w, x in zip(self.weights, self.inbound_neurons):
+            self.value += w.value * x.value
+
 
 def topological_sort(feed_dict):
     """
